@@ -15,12 +15,17 @@ filmRouter.get('/films/:id', function(req, res){
 });
 
 filmRouter.post('/films', function(req, res){
-  films[req.params.id] = req.body.film;
+  films.push(req.body.film);
   res.json({data: films});
 });
 
 filmRouter.put('/films/:id', function(req, res){
-  films[req.params.id].addReview(req.body.review);
+  films[req.params.id] = req.body.film;
+  res.json({data: films});
+});
+
+filmRouter.put('films/:id/review', function(req, res){
+  films [req.params.id].addReview(req.body.review);
   res.json({data: films});
 });
 
