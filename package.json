@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1"
   },
   "devDependencies": {
     "mocha": "^3.2.0",
     "webpack": "^1.14.0"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "mocha --reporter nyan client/src/models/specs"
   },
   "author": "",
