@@ -18,5 +18,9 @@ describe('Film', function(){
 
   it('should have a genre', function(){
     assert.equal(film.genre, "Romantic Sadness")
-  })
+  });
+
+  it('should have actors', function(){
+    assert.equal(film.actors, "Leonardo Dicaprio")
+  });
 });
