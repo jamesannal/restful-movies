@@ -6,6 +6,11 @@ var filmRouter = express.Router();
 
 var films = new Films();
 
+
+// filmRouter.get('/', function(req, res){
+//   res.json(films);
+// });
+
 filmRouter.get('/films', function(req, res){
   res.json(films);
 });
@@ -15,17 +20,33 @@ filmRouter.get('/films/:id', function(req, res){
 });
 
 filmRouter.post('/films', function(req, res){
-  films.push(req.body.film);
+  var film = new Film({
+    title: req.body.title,
+    actors: req.body.actors,
+    genre: req. body.genre
+  });
+  films.push(film);
   res.json({data: films});
 });
 
 filmRouter.put('/films/:id', function(req, res){
-  films[req.params.id] = req.body.film;
+  var film = new Film({
+    title: req.body.title,
+    actors: req.body.actors,
+    genre: req. body.genre
+  });
+  films[req.params.id] = film;
   res.json({data: films});
 });
 
 filmRouter.put('films/:id/review', function(req, res){
-  films [req.params.id].addReview(req.body.review);
+  var film = films[req.params.id];
+  var review = new Review({
+    comment: req.body.comment,
+    rating: req.body.rating,
+    author: req.body.author
+  });
+  film.addReview(review1);
   res.json({data: films});
 });
 
